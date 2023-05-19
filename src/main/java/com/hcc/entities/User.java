@@ -1,6 +1,5 @@
 package com.hcc.entities;
 
-import net.bytebuddy.asm.Advice;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -23,13 +22,13 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "startdate")
-    private LocalDate startdate;
+    @Column(name = "cohort_start_date")
+    private LocalDate cohortStartDate;
 
-    public User(String username, String password, LocalDate startdate) {
+    public User(String username, String password, LocalDate cohortStartDate) {
         this.username = username;
         this.password = password;
-        this.startdate = startdate;
+        this.cohortStartDate = cohortStartDate;
     }
 
     public User() {
@@ -53,9 +52,9 @@ public class User implements UserDetails {
 
     public void setPassword(String password) { this.password = password; }
 
-    public LocalDate getStartdate() { return startdate; }
+    public LocalDate getCohortStartDate() { return cohortStartDate; }
 
-    public void setStartdate(LocalDate startdate) { this.startdate = startdate; }
+    public void setCohortStartDate(LocalDate cohortStartDate) { this.cohortStartDate = cohortStartDate; }
 
     @Override
     public boolean isAccountNonExpired() {

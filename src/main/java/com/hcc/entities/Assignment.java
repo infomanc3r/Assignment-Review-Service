@@ -27,13 +27,18 @@ public class Assignment {
     @Column(name = "user")
     private User user;
 
-    public Assignment(String status, Integer number, String githubUrl, String branch, String reviewVideoUrl, User user) {
+    @Column(name = "codeReviewer")
+    private User codeReviewer;
+
+    public Assignment(String status, Integer number, String githubUrl, String branch, String reviewVideoUrl
+                        , User user, User codeReviewer) {
         this.status = status;
         this.number = number;
         this.githubUrl = githubUrl;
         this.branch = branch;
         this.reviewVideoUrl = reviewVideoUrl;
         this.user = user;
+        this.codeReviewer = codeReviewer;
     }
 
     public Assignment() {
@@ -79,5 +84,9 @@ public class Assignment {
     public User getUser() { return user; }
 
     public void setUser(User user) { this.user = user; }
+
+    public User getCodeReviewer() { return codeReviewer; }
+
+    public void setCodeReviewer() { this.codeReviewer = codeReviewer; }
 }
 
