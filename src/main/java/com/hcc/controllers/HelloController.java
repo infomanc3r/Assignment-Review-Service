@@ -1,6 +1,6 @@
 package com.hcc.controllers;
 
-import com.hcc.entities.Hello;
+import com.hcc.entities.Assignment;
 import com.hcc.services.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ public class HelloController {
     HelloService helloService;
     @GetMapping
     ResponseEntity<?> welcomeLearner() {
-        Hello greeting = helloService.greetLearner();
+        Assignment greeting = helloService.greetLearner();
         return ResponseEntity.ok(greeting);
     }
 }
