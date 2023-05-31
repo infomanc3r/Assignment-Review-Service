@@ -9,6 +9,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+/**
+ * This service class allows the retrieval of a username/password combo when the loadUserByUsername method is called
+ * with the username of interest.
+ */
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired

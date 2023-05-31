@@ -3,6 +3,11 @@ package com.hcc.dtos;
 import com.hcc.entities.User;
 import java.util.List;
 
+/**
+ * This class is a Data Transfer Object built for accessing Assignment-object-related data on a datastore while only
+ * passing the relevant parameters and "hiding" the rest with the relevant Assignment object.
+ */
+
 public class AssignmentResponseDto {
 
     private Long id;

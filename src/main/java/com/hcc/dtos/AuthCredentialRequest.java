@@ -1,5 +1,9 @@
 package com.hcc.dtos;
 
+/**
+ * This class is a Data Transfer Object built for making queries related to Security credentials while only passing the
+ * relevant parameters and "hiding" the rest within the relevant User object.
+ */
 public class AuthCredentialRequest {
 
     private Long id;
