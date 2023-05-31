@@ -4,17 +4,18 @@ import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
+/**
+ *  This class represents an Authority entity and associates a role assigned to a specific User. It is mapped to the
+ *  "authorities" table with a persistent generated id stored as a long acting as the primary key.
+ */
+
 @Entity
 @Table(name = "authorities")
 public class Authority implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "authority")
     private String authority;
-
-    @Column(name = "user")
     private User user;
 
     public Authority(String authority) {

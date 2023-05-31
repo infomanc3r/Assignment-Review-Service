@@ -9,21 +9,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ *  This class represents a User entity.
+ */
+
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "username")
     private String username;
-
-    @Column(name = "password")
     private String password;
-
-    @Column(name = "cohort_start_date")
     private LocalDate cohortStartDate;
+    private List<Authority> authorities;
 
     public User(String username, String password, LocalDate cohortStartDate) {
         this.username = username;

@@ -10,13 +10,14 @@ public enum HelloEnum {
     Greeting4(4, "Good Night");
 
     private int greetingNumber;
-
     private String greetingMessage;
+
     HelloEnum(int greetingNumber, String greetingMessage) {
         this.greetingNumber = greetingNumber;
         this.greetingMessage = greetingMessage;
     }
 
-    int getGreetingNumber() { return greetingNumber; }
-    String getGreetingMessage() { return greetingMessage; }
+    int getGreetingNumber() { return this.greetingNumber; }
+    String getGreetingMessage() { return this.greetingMessage; }
+
 }

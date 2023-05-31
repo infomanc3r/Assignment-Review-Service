@@ -2,35 +2,28 @@ package com.hcc.entities;
 
 import javax.persistence.*;
 
+/**
+ *  This class represents an Assignment entity. It stores the associated user, code reviewer, status, branch, as well as
+ *  Github and review video URLs. It is mapped to the "assignments" table with a persistent generated id stored
+ *  as a long acting primary key.
+ */
+
 @Entity
 @Table(name = "assignments")
 public class Assignment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "status")
     private String status;
-
-    @Column(name = "number")
-    private Integer number;
-
-    @Column(name = "githubUrl")
+    private int number;
     private String githubUrl;
-
-    @Column(name = "branch")
     private String branch;
-
-    @Column(name = "reviewVideoUrl")
     private String reviewVideoUrl;
-
-    @Column(name = "user")
+    @ManyToOne
     private User user;
-
-    @Column(name = "codeReviewer")
     private User codeReviewer;
 
-    public Assignment(String status, Integer number, String githubUrl, String branch, String reviewVideoUrl
+    public Assignment(String status, int number, String githubUrl, String branch, String reviewVideoUrl
                         , User user, User codeReviewer) {
         this.status = status;
         this.number = number;
@@ -44,6 +37,7 @@ public class Assignment {
     public Assignment() {
     }
 
+    // TODO: remove temporary constructor (used in order to build)
     public Assignment(long id, String decodedString) {
         this.id = id;
         this.status = decodedString;
