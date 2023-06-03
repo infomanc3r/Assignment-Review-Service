@@ -23,7 +23,7 @@ public class User implements UserDetails {
     private String username;
     private String password;
     private LocalDate cohortStartDate;
-    private List<Authority> authorities;
+//    private List<Authority> authorities;
 
     public User(String username, String password, LocalDate cohortStartDate) {
         this.username = username;
