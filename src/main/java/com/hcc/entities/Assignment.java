@@ -37,12 +37,6 @@ public class Assignment {
     public Assignment() {
     }
 
-    // TODO: remove temporary constructor (used in order to build - referenced in HelloService)
-    public Assignment(long id, String decodedString) {
-        this.id = id;
-        this.status = decodedString;
-    }
-
     public Long getId() {
         return id;
     }
