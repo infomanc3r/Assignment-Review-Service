@@ -4,6 +4,8 @@ import com.hcc.filters.jwtFilter;
 import com.hcc.services.UserDetailServiceImpl;
 import com.hcc.utils.CustomPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -23,16 +25,16 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     CustomPasswordEncoder customPasswordEncoder;
 
     @Autowired
-    jwtFilter jwtFilt;
+    jwtFilter jwtFilter;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
         auth.userDetailsService(userDetailServiceImpl).passwordEncoder(customPasswordEncoder.getPasswordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().cors().disable(); // do not dissable this lot here just for now!!
+        http.csrf().disable().cors().disable(); // do not disable this lot here just for now!!
 
         http = http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and();
 
@@ -40,8 +42,15 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, exception.getMessage());
         }).and();
 
-        http.authorizeRequests().anyRequest().authenticated();
-        http.addFilterBefore(jwtFilt, UsernamePasswordAuthenticationFilter.class);
+        http.authorizeRequests().antMatchers("/login").permitAll().anyRequest().authenticated();
+        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+    }
+
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws
+            Exception {
+        return super.authenticationManagerBean();
     }
 
 }

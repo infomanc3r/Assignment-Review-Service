@@ -14,6 +14,7 @@ import java.util.List;
 public class AssignmentController {
     @Autowired
     AssignmentService assignmentService;
+
     @GetMapping
     public List<Assignment> getAssignmentsByUser() {
         return assignmentService.getAllAssignments();
@@ -37,4 +38,5 @@ public class AssignmentController {
         assignmentService.addAssignment(assignment);
         return ResponseEntity.ok().build();
     }
+
 }
