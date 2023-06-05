@@ -6,6 +6,7 @@ import com.hcc.entities.User;
 import com.hcc.services.UserDetailServiceImpl;
 import com.hcc.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,12 +14,10 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("api/auth")
 public class AuthController {
     @Autowired
@@ -33,19 +32,19 @@ public class AuthController {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
-        } catch (DisabledException e) {
-            throw new Exception("USER_DISABLED", e);
-        } catch (BadCredentialsException e) {
-            throw new Exception("INVALID_CREDENTIALS", e);
+        } catch (DisabledException | BadCredentialsException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
 
-        final UserDetails userDetails = userDetailService.loadUserByUsername(request.getUsername());
         User user = new User();
         user.setUsername(request.getUsername());
         user.setPassword(request.getPassword());
         final String jwtToken = jwtUtil.generateToken(user);
 
-        return ResponseEntity.ok(new AuthCredentialResponse(jwtToken));
+        return ResponseEntity.ok()
+                .header(HttpHeaders.AUTHORIZATION,
+                        jwtToken)
+                .body(new AuthCredentialResponse(jwtToken));
     }
 
     @PostMapping("/validate")
@@ -57,7 +56,7 @@ public class AuthController {
         if(valid) {
             return ResponseEntity.ok(new AuthCredentialResponse(request.getToken()));
         } else {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
 

@@ -10,9 +10,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  */
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum AuthorityEnum {
-    Authority1(1, "Student"),
-    Authority2(2, "Reviewer"),
-    Authority3(3, "Owner");
+    Authority1(1, "ROLE_STUDENT"),
+    Authority2(2, "ROLE_REVIEWER"),
+    Authority3(3, "ROLE_ADMIN");
 
     private int authorityNumber;
     private String authority;
