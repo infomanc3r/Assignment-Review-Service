@@ -41,7 +41,7 @@ public class AuthController {
         user.setPassword(request.getPassword());
         final String jwtToken = jwtUtil.generateToken(user);
 
-        return ResponseEntity.ok()
+        return ResponseEntity.status(200)
                 .header(HttpHeaders.AUTHORIZATION,
                         jwtToken)
                 .body(new AuthCredentialResponse(jwtToken));

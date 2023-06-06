@@ -1,6 +1,6 @@
 package com.hcc.config;
 
-import com.hcc.filters.jwtFilter;
+import com.hcc.filters.JwtFilter;
 import com.hcc.services.UserDetailServiceImpl;
 import com.hcc.utils.CustomPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     CustomPasswordEncoder customPasswordEncoder;
 
     @Autowired
-    jwtFilter jwtFilter;
+    JwtFilter jwtFilter;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
