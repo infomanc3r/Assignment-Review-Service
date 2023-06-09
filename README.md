@@ -1,7 +1,7 @@
 # Assignment Review Service
 
 ## Welcome to the Backend Repository for the Assignment Review Service, a single-page-application built for students to submit assignments and reviewers to review them!
-To set this project up you will need to clone it to your local computer and make sure to have the prereqiosites of...
+To set this project up you will need to clone it to your local computer and make sure to have the prerequisites of...
 - docker / dockerdesktop
 - docker compose
 - intellij Idea
