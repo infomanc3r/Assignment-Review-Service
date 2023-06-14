@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ *  A controller for handling RESTful API requests for the Assignment entity.
+ *  It provides endpoints to get assignments by user/id, update assignments by id, and add assignments.
+ */
 @RestController
 @CrossOrigin
 @RequestMapping("api/assignments")

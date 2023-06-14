@@ -2,18 +2,17 @@ package com.hcc.services;
 
 import com.hcc.entities.User;
 import com.hcc.repositories.UserRepository;
-import com.hcc.utils.CustomPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import java.util.Optional;
 
 /**
- * This service class allows the retrieval of a username/password combo when the loadUserByUsername method is called
- * with the username of interest.
+ *  This service class allows the retrieval of a username/password combo when the loadUserByUsername method is called
+ *  with the username of interest.
  */
 
 @Service

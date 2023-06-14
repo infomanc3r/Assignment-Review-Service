@@ -15,6 +15,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *  This class is used to configure Spring Security.
+ *  It configures authentication by setting when we require a JWT token and how to authenticate user credentials.
+ *  It determines which encoding we use to encode passwords.
+ *  It also configures authorization by setting which roles can access which endpoints.
+ */
 @EnableWebSecurity
 public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 

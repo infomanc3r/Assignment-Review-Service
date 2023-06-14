@@ -12,6 +12,7 @@ import java.util.List;
 /**
  *  This class represents a User entity. The class implements Spring Security's UserDetails interface, allowing it to
  *  be used for authentication through Spring.
+ *  The class is annotated with JPA annotations to allow it to be mapped to the database.
  */
 
 @Entity

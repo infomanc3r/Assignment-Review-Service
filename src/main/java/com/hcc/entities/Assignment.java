@@ -6,6 +6,7 @@ import javax.persistence.*;
  *  This class represents an Assignment entity. It stores the associated user, code reviewer, status, branch, as well as
  *  Github and review video URLs. It is mapped to the "assignments" table with a persistent generated id stored
  *  as a long acting primary key.
+ *  The class is annotated with JPA annotations to allow it to be mapped to the database.
  */
 
 @Entity

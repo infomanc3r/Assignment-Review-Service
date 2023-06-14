@@ -16,6 +16,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * A controller for handling RESTful API requests for the Authentication entity.
+ * It provides endpoints to login and validate tokens.
+ */
 @RestController
 @CrossOrigin
 @RequestMapping("api/auth")

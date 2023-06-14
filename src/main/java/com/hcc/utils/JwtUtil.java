@@ -16,6 +16,14 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.function.Function;
 
+/**
+ * This class provides utility functions for working with JSON Web Tokens.
+ * These functions include generating a token, validating a token, and extracting information from a token.
+ * The token is generated using the HS512 algorithm and a secret key.
+ * The token is valid for 5 days.
+ * The token contains the username of the user, the date the token was issued, and the date the token expires.
+ * The token also contains the user's role.
+ */
 @Component
 public class JwtUtil implements Serializable {
     public static final long JWT_TOKEN_VALIDITY = 5 * 24 * 60 * 60;

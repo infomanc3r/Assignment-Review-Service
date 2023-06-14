@@ -3,11 +3,14 @@ package com.hcc.services;
 import com.hcc.entities.Assignment;
 import com.hcc.repositories.AssignmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.expression.spel.ast.Assign;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
+/**
+ *  A service that handles CRUD operations for the Assignment entity.
+ */
 @Service
 public class AssignmentService {
     @Autowired

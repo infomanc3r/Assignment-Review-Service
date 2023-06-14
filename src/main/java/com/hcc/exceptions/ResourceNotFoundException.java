@@ -3,6 +3,9 @@ package com.hcc.exceptions;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * An exception to be thrown when the requested resource is not found in the database.
+ */
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
 public class ResourceNotFoundException extends RuntimeException {
     private static final long serialVersionUID = 1L;

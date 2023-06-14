@@ -7,6 +7,9 @@ import javax.persistence.*;
 /**
  *  This class represents an Authority entity and associates a role assigned to a specific User. It is mapped to the
  *  "authorities" table with a persistent generated id stored as a long acting as the primary key.
+ *  The class implements Spring Security's GrantedAuthority interface, allowing it to be used for authentication
+ *  through Spring.
+ *  The class is annotated with JPA annotations to allow it to be mapped to the database.
  */
 
 @Entity

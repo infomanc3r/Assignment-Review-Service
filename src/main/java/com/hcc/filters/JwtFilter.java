@@ -3,6 +3,7 @@ package com.hcc.filters;
 import com.hcc.repositories.UserRepository;
 import com.hcc.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,10 +18,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import org.springframework.http.HttpHeaders;
-
 import static org.springframework.util.ObjectUtils.isEmpty;
 
+/**
+ * A filter for handling JWT authentication.
+ * It checks for a valid JWT token in the Authorization header of the request.
+ * If the token is valid, it sets the user in the SecurityContext and allows the request to proceed.
+ * If the token is invalid, it returns a 401 Unauthorized response.
+ * This filter is added to the Spring Security filter chain in the SecurityConfig class.
+ */
 @Component
 public class JwtFilter extends OncePerRequestFilter {
     @Autowired
